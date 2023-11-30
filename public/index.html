@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Joulukalenteri</title>
+    <!-- Christmas calender styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+    <style type="text/css">
+      body {
+        background-color: green;
+        color: red;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1.5em;
+        text-align: center;
+        background-image: url('images/elena-mozhvilo-hlHmSFZrATc-unsplash.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+
+      .calender__day {
+        padding: 3rem;
+        border: solid red 1px;
+        cursor: pointer;
+        font-family: "Mountains of Christmas", cursive;
+        font-size: 6rem;
+        width: 10rem;
+        height: 10rem;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        /* Black stroke */
+        background-color: rgba(255, 255, 255, 0.1);
+        /* White with 50% transparency */
+      }
+
+      .calender__day:hover {
+        background-color: rgba(0, 255, 0, 0.3);
+      }
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #ff0000;
+      }
+
+      .modal {
+        background-color: green;
+        padding: 1rem;
+        border-radius: 1rem;
+        position: absolute;
+        /* Positioned absolutely */
+        z-index: 1;
+        /* Sit on top */
+        left: 50%;
+        /* Start from the middle of the left side */
+        top: 50%;
+        /* Start from the middle of the top side */
+        transform: translate(-50%, -50%);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+      }
+
+      .close {
+        color: #ffffff;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: red;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .calender {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        /* 7 columns for 7 days of the week */
+        gap: 10px;
+        /* Space between grid items */
+      }
+
+      .christmas {
+        font-family: "Mountains of Christmas", cursive;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        /* Black stroke */
+        font-size: 5em;
+        margin: 0;
+        color: #ffffff;
+      }
+    </style>
+    <script>
+      function closePlayer() {
+        var playerContainer = document.getElementById('player-container');
+        if (playerContainer) {
+          playerContainer.classList.remove('modal');
+          playerContainer.innerHTML = '<span class="close">&times;</span><div id="player"></div>';
+        }
+      }
+
+      window.onSpotifyIframeApiReady = (IFrameAPI) => {
+        window.playSong = (event) => {
+          event.preventDefault();
+          closePlayer();
+          const trackId = event.target.getAttribute('data-spotify-track');
+          const element = document.getElementById('player');
+          const options = {
+            uri: 'spotify:track:' + trackId
+          };
+          const callback = (EmbedController) => {
+            EmbedController.togglePlay();
+
+          };
+          IFrameAPI.createController(element, options, callback);
+          document.getElementById('player-container').classList.add('modal');
+          var closeButton = document.getElementsByClassName('close')[0];
+
+          // When the user clicks on the close button, close the modal
+          closeButton.onclick = function () {
+            closePlayer();
+          }
+        };
+      };
+    </script>
+
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
+  </head>
+
+  <body>
+    <h1 class="christmas">Joulukalenteri</h1>
+    <div id="player-container">
+      <span class="close">&times;</span>
+      <div id="player"></div>
+    </div>
+    <div class="calender">
+      <a class="calender__day" data-spotify-track="0vWUONOi0V0AIBYPU6vHc1" href="#" onclick="playSong(event)">1 </a>
+      <a class="calender__day" data-spotify-track="0lGy7ER7AaKwCwa8okxfax" href="#" onclick="playSong(event)">2 </a>
+      <a class="calender__day" data-spotify-track="0wGqzcs0vW8n7eaoh079Oq" href="#" onclick="playSong(event)">3 </a>
+      <a class="calender__day" data-spotify-track="3BxahiUv6LS5qEX9PWSFu1" href="#" onclick="playSong(event)">4 </a>
+      <a class="calender__day" data-spotify-track="0qPl4nnzPzoWBHLTxcm6gj" href="#" onclick="playSong(event)">5 </a>
+      <a class="calender__day" data-spotify-track="6cX9c6GqXA1S4ORhzV3X53" href="#" onclick="playSong(event)">6 </a>
+      <a class="calender__day" data-spotify-track="4DpfayW5CH6TTlGAkwiCgd" href="#" onclick="playSong(event)">7 </a>
+      <a class="calender__day" data-spotify-track="2NR5wWaTPvaXu8iEjSPZwo" href="#" onclick="playSong(event)">8 </a>
+      <a class="calender__day" data-spotify-track="7hcWmkVkihrCB4heuyNfUM" href="#" onclick="playSong(event)">9 </a>
+      <a class="calender__day" data-spotify-track="39w3TgNj85xYeYCN75P0tD" href="#" onclick="playSong(event)">10 </a>
+      <a class="calender__day" data-spotify-track="1WNyEaaKCRqWbIZv9RuILP" href="#" onclick="playSong(event)">11 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">12 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">13 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">14 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">15 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">16 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">17 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">18 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">19 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">20 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">21 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">22 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">23 </a>
+      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">24 </a>
+    </div>
+  </body>
+
+</html>
