@@ -16,9 +16,22 @@
         font-size: 1.5em;
         text-align: center;
         background-image: url('images/elena-mozhvilo-hlHmSFZrATc-unsplash.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
         background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
       }
 
       .calender__day {
@@ -27,12 +40,10 @@
         cursor: pointer;
         font-family: "Mountains of Christmas", cursive;
         font-size: 6rem;
-        width: 10rem;
-        height: 10rem;
+        width: calc(6rem + 2vw);
+        height: calc(6rem + 2vw);
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-        /* Black stroke */
         background-color: rgba(255, 255, 255, 0.1);
-        /* White with 50% transparency */
       }
 
       .calender__day:hover {
@@ -89,9 +100,10 @@
 
       .calender {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        /* Default to 3 columns for small screens */
         /* 7 columns for 7 days of the week */
-        gap: 10px;
+        gap: 1rem;
         /* Space between grid items */
       }
 
@@ -106,11 +118,27 @@
 
       #player-container {
         position: absolute;
-        display:none;
+        display: none;
       }
 
       #player-container.modal {
         display: block;
+      }
+
+      /* Medium screens (e.g., tablets) */
+      @media (min-width: 600px) {
+        .calender {
+          grid-template-columns: repeat(4, 1fr);
+          /* 4 columns */
+        }
+      }
+
+      /* Large screens */
+      @media (min-width: 1024px) {
+        .calender {
+          grid-template-columns: repeat(6, 1fr);
+          /* Back to 6 columns */
+        }
       }
     </style>
     <script>
