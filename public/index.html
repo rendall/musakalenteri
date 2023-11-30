@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Joulukalenteri</title>
+    <title>Joulukalenteri 2023</title>
     <!-- Christmas calender styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +52,6 @@
         background-color: green;
         padding: 1rem;
         border-radius: 1rem;
-        position: absolute;
         /* Positioned absolutely */
         z-index: 1;
         /* Sit on top */
@@ -103,6 +102,15 @@
         font-size: 5em;
         margin: 0;
         color: #ffffff;
+      }
+
+      #player-container {
+        position: absolute;
+        display:none;
+      }
+
+      #player-container.modal {
+        display: block;
       }
     </style>
     <script>
@@ -161,19 +169,19 @@
       <a class="calender__day" data-spotify-track="7hcWmkVkihrCB4heuyNfUM" href="#" onclick="playSong(event)">9 </a>
       <a class="calender__day" data-spotify-track="39w3TgNj85xYeYCN75P0tD" href="#" onclick="playSong(event)">10 </a>
       <a class="calender__day" data-spotify-track="1WNyEaaKCRqWbIZv9RuILP" href="#" onclick="playSong(event)">11 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">12 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">13 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">14 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">15 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">16 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">17 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">18 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">19 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">20 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">21 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">22 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">23 </a>
-      <a class="calender__day" data-spotify-track="trackId" href="#" onclick="playSong(event)">24 </a>
+      <a class="calender__day" data-spotify-track="6zewSLWVckr7jwBhqT3rCG" href="#" onclick="playSong(event)">12 </a>
+      <a class="calender__day" data-spotify-track="76z7kOVtsm9YGCGlPtFFJU" href="#" onclick="playSong(event)">13 </a>
+      <a class="calender__day" data-spotify-track="52QtEwBg5rL4cZZSIPWSD6" href="#" onclick="playSong(event)">14 </a>
+      <a class="calender__day" data-spotify-track="657oqjUTgMfGqGN0kSOeNf" href="#" onclick="playSong(event)">15 </a>
+      <a class="calender__day" data-spotify-track="1MYvxJw7G6yVzBzZMTT8jB" href="#" onclick="playSong(event)">16 </a>
+      <a class="calender__day" data-spotify-track="7qyuZ6wyB8j6GCKhMcD6ZW" href="#" onclick="playSong(event)">17 </a>
+      <a class="calender__day" data-spotify-track="0MDVz3CJtMyj0LQyJ4lKTa" href="#" onclick="playSong(event)">18 </a>
+      <a class="calender__day" data-spotify-track="1KYfRvGeFd2sHCfsExWAzW" href="#" onclick="playSong(event)">19 </a>
+      <a class="calender__day" data-spotify-track="1NmED1BGsbRxh1qJvWOMNQ" href="#" onclick="playSong(event)">20 </a>
+      <a class="calender__day" data-spotify-track="3tjadXztYeBpaiBk7u7per" href="#" onclick="playSong(event)">21 </a>
+      <a class="calender__day" data-spotify-track="5capWv86zDd1EsxcDHOnh2" href="#" onclick="playSong(event)">22 </a>
+      <a class="calender__day" data-spotify-track="0wvHoTLCdMAGUvdSAqCeN8" href="#" onclick="playSong(event)">23 </a>
+      <a class="calender__day" data-spotify-track="2G7b7mkY6cNTNQznCpdTro" href="#" onclick="playSong(event)">24 </a>
     </div>
   </body>
 
